@@ -3,9 +3,12 @@
      
     background-Color:grey;
     color: white;
-   
     padding: 1.6rem;
-
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 2rem;
+    width:100%;
     
 
 }
