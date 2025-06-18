@@ -1,0 +1,32 @@
+
+.App{
+  background-color: brown;
+ 
+ text-align: center;
+ 
+ 
+}
+
+
+.container{
+
+   display: flex;
+  justify-content: center;
+  flex-direction:row;
+  align-items: center;
+  height: 100vh;
+  background-color: aqua;
+  
+
+
+}
+
+
+
+
+.title{
+
+  
+}
+
+
