@@ -18,15 +18,11 @@ function App() {
 
   return (
     <div>
+      <Header />
     <div className = {styles.container}>
     <div className= { styles.App}>
-      <Header />
-      <main className = { styles.title}>
-        <p>Welcome to the main content!</p>
-      </main>
-      <Footer />
-    
-
+      
+      
 
     </div>
 
@@ -51,6 +47,7 @@ function App() {
     </div>
     </div>
     
+     <Footer />
     </div>
   );
 }

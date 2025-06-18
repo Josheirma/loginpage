@@ -4,11 +4,11 @@ function Header() {
   return (
    
     <div className = {styles.headerContainer} >
-    <header>
+    
        
       My App
    
-    </header>
+    
     </div> 
   );
 }
