@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import styles from './form.module.css';
+import { auth } from './firebase';
+import { signInWithEmailAndPassword } from "firebase/auth";
 
    
 
@@ -7,24 +9,38 @@ function MultiInputForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    password: '',
   });
 
 
-  const handleChange = (e) => {
+  let user;
+  const handleChange = async (e) => {
     const { name, value } = e.target;
 
     setFormData(prevData => ({
       ...prevData,
       [name]: value
-    }));
-  };
+    })
+  )};
+  
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Submitted:', formData);
+    const email = formData.email
+    const password = formData.password
     // Send formData to a server, save to Firestore, etc.
-  };
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      // ✅ Firebase login successful
+      user = userCredential.user;
+    } catch (error){
+
+      console.log("error: ", error)
+      console.log("user: ", user)
+
+    };
+}
 
 
 
@@ -58,6 +74,18 @@ function MultiInputForm() {
       </div>
       <br />
 
+       <div className = {styles.inputformatting} >
+      <label>
+        Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input 
+          type="password" 
+          name="password" 
+          value={formData.password} 
+          onChange={handleChange} 
+        />
+      </label>
+      </div>
+
 
       
       <br />
@@ -70,6 +98,9 @@ function MultiInputForm() {
        
 
      );
-}
 
-export default MultiInputForm;
+
+    }
+  
+
+  export default MultiInputForm;
