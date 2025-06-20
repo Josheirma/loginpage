@@ -5,10 +5,19 @@ import React, { useState, useEffect } from 'react';
 import Signin from './input/form';
 import Signup from './Signup/Signup'
 import {auth} from './firebase'
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 
 
   
+const handleLogout = async () => {
+  try {
+    await signOut(auth);
+    console.log("User signed out.");
+  } catch (error) {
+    console.error("Error signing out:", error);
+  }
+};
+
 
 function App() {
 
@@ -31,7 +40,6 @@ function App() {
   const handleClick = () => {
     setShowMessage(prev => !prev); // toggles between true and false
   };
-
 
   return (
     <div>
@@ -67,9 +75,18 @@ function App() {
     </div>
       )}
 
+      <div className = {styles.thedisconnectbutton}>
+      <button onClick={() => handleLogout()}>
+      Disconnect
+      </button>
+      </div>
+      
     <button onClick={() => setIsSignIn(!isSignIn)}>
       {isSignIn ? 'Log In, press for Sign Up' : 'Sign Up, press for Log In'}
       </button>
+
+      
+
     
      {isSignIn ? <Signin /> : <Signup />}
     {/*<Signin/>*/}
