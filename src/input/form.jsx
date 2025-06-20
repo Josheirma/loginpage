@@ -27,9 +27,19 @@ function Signin() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+     
+
+
     console.log('Submitted:', formData);
     const email = formData.email
     const password = formData.password
+    
+    if (password.length < 6) {
+      alert("Password must be at least 6 characters long.");
+      return; // stop form submission if password too short
+    }
+
     // Send formData to a server, save to Firestore, etc.
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
@@ -50,21 +60,21 @@ function Signin() {
 
         <div className = {styles.inputformatting} >
         <form onSubmit={handleSubmit}>
-      <label>
-        Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      {/* <label>
+        Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <input 
           type="text" 
           name="name" 
           value={formData.name} 
           onChange={handleChange} 
         />
-      </label>
+      </label> */}
       
       <br />
 
         <div className = {styles.inputformatting} >
       <label>
-        Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <input 
           type="email" 
           name="email" 

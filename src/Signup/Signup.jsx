@@ -35,6 +35,7 @@ function Signup() {
     // Calling e.preventDefault() stops the browser’s default reload/navigation.  This lets your React function run fully, allowing the async call to Firebase (createUserWithEmailAndPassword) to complete.  
     e.preventDefault();
     
+    
         const {name, email, password} = formData;
 
       // 1. Check if name is already taken in firestore
@@ -83,7 +84,7 @@ function Signup() {
         <div className = {styles.inputformatting} >
         <form onSubmit={handleSignUp}>
       <label>
-        Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <input 
           type="text" 
           name="name" 
@@ -96,7 +97,7 @@ function Signup() {
 
         <div className = {styles.inputformatting} >
       <label>
-        Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <input 
           type="email" 
           name="email" 

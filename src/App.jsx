@@ -10,6 +10,7 @@ import Signup from './Signup/Signup'
 function App() {
 
   const [showMessage, setShowMessage] = useState(false);
+   const [isSignIn, setIsSignIn] = useState(true);
 
   const handleClick = () => {
     setShowMessage(prev => !prev); // toggles between true and false
@@ -29,9 +30,13 @@ function App() {
 
     </div>
 
+
+
+
 <div className={styles.buttonContainer}>
       
       <div className = {styles.clickbuttoncontainer}>
+      
       <button onClick={handleClick}>
         {showMessage ? 'Hide' : 'Show'} Message
       </button>
@@ -42,11 +47,21 @@ function App() {
       {showMessage && <p>This is the message!</p>}
     </div>
 
+    <button onClick={() => setIsSignIn(!isSignIn)}>
+      {isSignIn ? 'Log In, press for Sign Up' : 'Sign Up, press for Log In'}
+      </button>
+    
+     {isSignIn ? <Signin /> : <Signup />}
     {/*<Signin/>*/}
-    <Signup/>
+   
 
     </div>
     </div>
+
+
+
+
+
     
      <Footer />
     </div>
