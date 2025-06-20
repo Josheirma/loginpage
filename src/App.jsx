@@ -2,8 +2,8 @@ import Header from './header/header';
 import Footer from './footer/footer';
 import styles from './App.module.css';
 import { useState } from 'react';
-import MultiInputForm from './input/form';
-
+import Signin from './input/form';
+import Signup from './Signup/Signup'
 
   
 
@@ -42,7 +42,8 @@ function App() {
       {showMessage && <p>This is the message!</p>}
     </div>
 
-    <MultiInputForm/>
+    {/*<Signin/>*/}
+    <Signup/>
 
     </div>
     </div>

@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import styles from './form.module.css';
-import { auth } from './firebase';
+
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase.js"
 
    
 
-function MultiInputForm() {
+function Signin() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -103,4 +104,4 @@ function MultiInputForm() {
     }
   
 
-  export default MultiInputForm;
+  export default Signin;
