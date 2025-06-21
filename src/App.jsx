@@ -8,7 +8,9 @@ import {auth} from './firebase'
 import { onAuthStateChanged, signOut, getAuth } from 'firebase/auth';
 
 
-  
+
+
+
 const handleLogout = async () => {
   try {
     await signOut(auth);
@@ -50,6 +52,44 @@ function App() {
   };
 
    console.log("user: ", user)
+
+
+   /////logout with timer
+   
+    let logoutTimer;
+
+    function resetTimer() {
+      if(user === null){
+        return
+      }
+      clearTimeout(logoutTimer);
+      logoutTimer = setTimeout(logOutUser, 20 * 60 * 1000); // 3 minutes
+    }
+
+    function logOutUser() {
+    signOut(auth)
+    .then(() => {
+      console.log("User signed out due to inactivity.");
+      //window.location.href = '/login'; // Redirect to login page after sign out
+    })
+    .catch((error) => {
+      console.error("Sign-out error:", error);
+    });
+      alert("You have been logged out due to inactivity.");
+    }
+
+    // Events to detect activity
+    ['mousemove', 'keydown', 'mousedown', 'touchstart'].forEach(event => {
+      window.addEventListener(event, resetTimer);
+    });
+
+
+     resetTimer();
+
+
+
+    /////
+
   return (
    
     <div>
@@ -90,11 +130,11 @@ function App() {
       Disconnect
       </button>
       </div>
-    
+    {!user && (
     <button onClick={() => setIsSignIn(!isSignIn)}>
       {isSignIn ? 'Log In, press for Sign Up'  : 'Sign Up, press for Log In'   }
       </button>
-
+    )}
       
      {/*not signed in, show signed in*/}
      

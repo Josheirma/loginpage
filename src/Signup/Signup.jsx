@@ -13,38 +13,7 @@ function Signup() {
     const [success, setSuccess] = useState('');
 
 
-    /////logout with timer
-   
-    let logoutTimer;
-
-    function resetTimer() {
-      clearTimeout(logoutTimer);
-      logoutTimer = setTimeout(logOutUser, 15 * 60 * 1000); // 3 minutes
-    }
-
-    function logOutUser() {
-    signOut(auth)
-    .then(() => {
-      console.log("User signed out due to inactivity.");
-      //window.location.href = '/login'; // Redirect to login page after sign out
-    })
-    .catch((error) => {
-      console.error("Sign-out error:", error);
-    });
-      alert("You have been logged out due to inactivity.");
-    }
-
-    // Events to detect activity
-    ['mousemove', 'keydown', 'mousedown', 'touchstart'].forEach(event => {
-      window.addEventListener(event, resetTimer);
-    });
-
-
-     resetTimer();
-
-
-
-    /////
+    
 
      const [formData, setFormData] = useState({
         name: '',
