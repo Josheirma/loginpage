@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import Signin from './input/form';
 import Signup from './Signup/Signup'
 import {auth} from './firebase'
-import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { onAuthStateChanged, signOut, getAuth } from 'firebase/auth';
 
 
   
@@ -21,11 +21,19 @@ const handleLogout = async () => {
 
 function App() {
 
+  
   const [showMessage, setShowMessage] = useState(false);
-   const [isSignIn, setIsSignIn] = useState(true);
+   const [isSignIn, setIsSignIn] = useState(false);
+   const [logout, setLogout] = useState(false);
 
 
    const [user, setUser] = useState(null);
+
+   
+   useEffect(() => {
+  signOut(auth); // forces null on every load
+}, []);
+
 
     useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -41,7 +49,9 @@ function App() {
     setShowMessage(prev => !prev); // toggles between true and false
   };
 
+   console.log("user: ", user)
   return (
+   
     <div>
       <Header />
     <div className = {styles.container}>
@@ -80,15 +90,17 @@ function App() {
       Disconnect
       </button>
       </div>
-      
+    
     <button onClick={() => setIsSignIn(!isSignIn)}>
-      {isSignIn ? 'Log In, press for Sign Up' : 'Sign Up, press for Log In'}
+      {isSignIn ? 'Log In, press for Sign Up'  : 'Sign Up, press for Log In'   }
       </button>
 
       
-
-    
-     {isSignIn ? <Signin /> : <Signup />}
+     {/*not signed in, show signed in*/}
+     
+      {!user && (isSignIn ? <Signin /> : <Signup />)}
+       
+          
     {/*<Signin/>*/}
    
 

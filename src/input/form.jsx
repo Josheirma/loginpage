@@ -57,7 +57,7 @@ function Signin() {
 
 
     return (
-
+      
         <div className = {styles.inputformatting} >
         <form onSubmit={handleSubmit}>
       {/* <label>
@@ -69,7 +69,7 @@ function Signin() {
           onChange={handleChange} 
         />
       </label> */}
-      
+     
       <br />
 
         <div className = {styles.inputformatting} >

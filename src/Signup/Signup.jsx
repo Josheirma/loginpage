@@ -80,7 +80,7 @@ function Signup() {
 
 
     return (
-
+        
         <div className = {styles.inputformatting} >
         <form onSubmit={handleSignUp}>
       <label>
@@ -92,8 +92,9 @@ function Signup() {
           onChange={handleChange} 
         />
       </label>
-      
+       
       <br />
+    
 
         <div className = {styles.inputformatting} >
       <label>
@@ -127,6 +128,7 @@ function Signup() {
       <button type="submit">Submit</button>
       </div>
     </form>
+
 
         </div>
        
