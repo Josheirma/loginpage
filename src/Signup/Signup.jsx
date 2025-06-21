@@ -2,16 +2,14 @@ import { useState } from 'react';
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import styles from './Signup.module.css';
 import { auth, db } from "../firebase"; // path to your firebase.js
-import { createUserWithEmailAndPassword, signOut} from "firebase/auth";
+import { createUserWithEmailAndPassword} from "firebase/auth";
 
 
 
 function Signup() {
 
 
-    const [error, setError] = useState('');
-    const [success, setSuccess] = useState('');
-
+    
 
     
 
@@ -59,7 +57,7 @@ function Signup() {
     try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     user = userCredential.user;
-    //const uid = userCredential.user.uid;
+    
 
      await setDoc(nameRef, { uid: user.uid });
 

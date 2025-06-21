@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import Signin from './input/form';
 import Signup from './Signup/Signup'
 import {auth} from './firebase'
-import { onAuthStateChanged, signOut, getAuth } from 'firebase/auth';
+import { onAuthStateChanged, signOut} from 'firebase/auth';
 
 
 
@@ -25,8 +25,8 @@ function App() {
 
   
   const [showMessage, setShowMessage] = useState(false);
-   const [isSignIn, setIsSignIn] = useState(false);
-   const [logout, setLogout] = useState(false);
+   const [isSignIn, setIsSignIn] = useState(true);
+   
 
 
    const [user, setUser] = useState(null);
@@ -70,7 +70,7 @@ function App() {
     signOut(auth)
     .then(() => {
       console.log("User signed out due to inactivity.");
-      //window.location.href = '/login'; // Redirect to login page after sign out
+      
     })
     .catch((error) => {
       console.error("Sign-out error:", error);
@@ -112,13 +112,15 @@ function App() {
       {user && (
       <div className = {styles.clickbuttoncontainer}>
       
+      <div className = {styles.hidebutton}>
       <button onClick={handleClick}>
         {showMessage ? 'Hide' : 'Show'} Message
       </button>
+      </div>
       
 
+      <div className = {styles.message1}>
       <div className = {styles.message}>
-      <div>
       {showMessage && <p>This is the message!</p>}
       </div>
       </div>

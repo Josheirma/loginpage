@@ -33,10 +33,20 @@
 
 .message {
   text-align: center;
+  
+  height:3rem;
+  display: flex;
+  align-items: center;
+  
 }
 .title {
 }
 
+.hidebutton{
+  
+  text-align: center;
+
+}
 .thedisconnectbutton{
   margin-bottom: 2rem;
 }

@@ -60,15 +60,7 @@ function Signin() {
       
         <div className = {styles.inputformatting} >
         <form onSubmit={handleSubmit}>
-      {/* <label>
-        Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input 
-          type="text" 
-          name="name" 
-          value={formData.name} 
-          onChange={handleChange} 
-        />
-      </label> */}
+      
      
       <br />
 
