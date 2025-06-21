@@ -1,4 +1,3 @@
-
 import { getAuth } from "firebase/auth"; // Optional if using auth
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -16,79 +15,12 @@ const firebaseConfig = {
   storageBucket: "auth-with-features.firebasestorage.app",
   messagingSenderId: "798530981071",
   appId: "1:798530981071:web:1dc5bb5e6bd479f9d4fbba",
-  measurementId: "G-XLH1Q9GNY5"
+  measurementId: "G-XLH1Q9GNY5",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-
 // Export services
 export const auth = getAuth(app);
 export const db = getFirestore(app);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,14 +1,9 @@
-.headerContainer{
-
-     
-    background-color:yellow;
-    margin-top: 0rem;
-    padding-top:2rem;
-    padding-bottom:2rem;
-    width: 100%;
-    text-align: center;
-    
-    
-    
-
+.headerContainer {
+  background-color: grey;
+  margin-top: 0rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  width: 100%;
+  text-align: center;
+  color:white;
 }
