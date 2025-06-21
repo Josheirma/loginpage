@@ -70,7 +70,7 @@ function App() {
 
   resetTimer();
 
-  /////
+  //////
 
   return (
     <div>
