@@ -40,7 +40,7 @@ function App() {
 
   console.log("user: ", user);
 
-  /////logout with timer
+  //////logout with timer
 
   let logoutTimer;
 
